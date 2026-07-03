@@ -7,5 +7,9 @@
   },
   "dependencies": {
     "@tsconfig/react-native": "^3.0.9"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }
