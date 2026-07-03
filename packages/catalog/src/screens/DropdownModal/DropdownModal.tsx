@@ -16,12 +16,13 @@ export const DropdownModal: FC<NavigationProps> = (props) => {
     const { ds, resolve } = useTheme()
     const [searchText, setSearchText] = useState('')
     const insets = useSafeAreaInsets()
-    const options = useMemo(() => props.route.params.options as DropdownOption[] ?? [], [props.route])
+    const routeParams = props.route.params ?? {}
+    const options = useMemo(() => routeParams.options as DropdownOption[] ?? [], [routeParams.options])
     const filteredOptions = useMemo(() => (
         options.filter(it => it.title?.toLowerCase().includes(searchText?.toLowerCase()))
     ), [options, searchText])
     const showSearch = options.length > 10
-    const selectedId = props.route.params.selectedId
+    const selectedId = routeParams.selectedId
     const close = () => {
         props.navigation.goBack()
         const onClose = props.route.params?.['onClose']
@@ -38,7 +39,7 @@ export const DropdownModal: FC<NavigationProps> = (props) => {
         >
             <Container style={{ paddingBottom: insets.bottom }}>
                 <Content>
-                    <Headline>{props.route.params.title ?? 'Seleccione'}</Headline>
+                    <Headline>{routeParams.title ?? 'Seleccione'}</Headline>
                     {showSearch && (
                         <_SearchField onClear={() => setSearchText('')} value={searchText} onChangeText={(text) => setSearchText(text)} />
                     )}
@@ -90,3 +91,5 @@ const Headline = themed(Text, ({ resolve, ds }) => ({
 const _SearchField = styled(SearchField, {
     marginTop: rv(16),
 })
+
+

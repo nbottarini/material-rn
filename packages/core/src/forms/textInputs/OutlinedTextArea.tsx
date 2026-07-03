@@ -9,14 +9,18 @@ import { rv } from '../../rv'
 
 export const OutlinedTextArea = forwardRef<TextInput, OutlinedTextAreaProps>((props, ref) => {
     const { ds, resolve } = useTheme()
+    const disabled = props.disabled ?? false
+    const editable = props.editable ?? true
+    const error = props.error ?? false
+    const maxLength = props.maxLength ?? 300
     const [uncontrolledValue, setUncontrolledValue] = React.useState(props.defaultValue)
     const isControlled = props.value !== undefined
     const value = isControlled ? props.value : uncontrolledValue
     const [focused, setFocused] = React.useState(false)
-    const canEnterText = !props.disabled && props.editable
+    const canEnterText = !disabled && editable
     const inputTypeScale = resolve(ds.comp.outlinedTextInput.inputTextTypeScale)
-    const innerRef = React.useRef<TextInput>()
-    const inputRef = (ref !== undefined ? ref : innerRef) as MutableRefObject<TextInput>
+    const innerRef = React.useRef<TextInput | null>(null)
+    const inputRef = (ref !== undefined ? ref : innerRef) as MutableRefObject<TextInput | null>
 
     const handleFocus = (args: any) => {
         if (!canEnterText) return
@@ -37,8 +41,8 @@ export const OutlinedTextArea = forwardRef<TextInput, OutlinedTextAreaProps>((pr
 
     return (
         <View>
-            <Container focused={focused} error={props.error} disabled={props.disabled} style={[{
-                ...(props.disabled ? {
+            <Container focused={focused} error={error} disabled={disabled} style={[{
+                ...(disabled ? {
                     backgroundColor: rgba(
                         resolve(ds.comp.outlinedTextInput.disabledContainerColor),
                         resolve(ds.comp.outlinedTextInput.disabledContainerOpacity),
@@ -53,11 +57,11 @@ export const OutlinedTextArea = forwardRef<TextInput, OutlinedTextAreaProps>((pr
                         autoFocus={props.autoFocus}
                         multiline={true}
                         value={value}
-                        editable={!props.disabled && props.editable}
+                        editable={!disabled && editable}
                         secureTextEntry={props.secureTextEntry}
                         keyboardType={props.keyboardType ?? (Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password')}
                         inputMode={props.inputMode}
-                        maxLength={props.maxLength}
+                        maxLength={maxLength}
                         placeholder={props.placeholder}
                         placeholderTextColor={rgba(
                             resolve(ds.comp.outlinedTextInput.placeholderTextColor),
@@ -77,7 +81,7 @@ export const OutlinedTextArea = forwardRef<TextInput, OutlinedTextAreaProps>((pr
                                 letterSpacing: resolve(props.typeScale?.letterSpacing) ?? resolve(inputTypeScale.letterSpacing),
                                 color: resolve(ds.comp.outlinedTextInput.inputTextColor),
                                 height: rv(100),
-                                ...(props.disabled ? {
+                                ...(disabled ? {
                                     color: rgba(
                                         resolve(ds.comp.outlinedTextInput.disabledInputTextColor),
                                         resolve(ds.comp.outlinedTextInput.disabledInputTextOpacity)
@@ -92,22 +96,16 @@ export const OutlinedTextArea = forwardRef<TextInput, OutlinedTextAreaProps>((pr
                 typeScale={resolve(ds.comp.outlinedTextInput.supportingTextTypeScale)}
                 numberOfLines={1}
                 allowFontScaling={false}
-                error={props.error}
-                disabled={props.disabled}
+                error={error}
+                disabled={disabled}
             >
-                {props.supportingText ?? (value.length === 0 ? `0/${props.maxLength}` : `${value.length}/${props.maxLength}`)
+                {props.supportingText ?? ((value?.length ?? 0) === 0 ? `0/${maxLength}` : `${value?.length ?? 0}/${maxLength}`)
                 }
             </SupportingText>
         </View>
     )
 })
 
-OutlinedTextArea.defaultProps = {
-    editable: true,
-    error: false,
-    disabled: false,
-    maxLength: 300,
-}
 
 const Container = themed(View, ({ ds, resolve, error, focused }) => ({
     backgroundColor: resolve(ds.comp.outlinedTextInput.containerColor),
@@ -169,3 +167,6 @@ export interface OutlinedTextAreaProps {
     textAlign?: 'auto' | 'center' | 'left' | 'right' | 'justify'
     textAlignVertical?: 'auto' | 'center' | 'top' | 'bottom'
 }
+
+
+

@@ -16,7 +16,7 @@ export const Tabs: FC<TabProps> = ({ tabItems, lazy, activeTab, onChange }) => {
             navigationState={{ index, routes }}
             onIndexChange={(idx) => {
                 setIndex(idx)
-                onChange?.(tabItems[idx].component.name, idx)
+                onChange?.(tabItems[idx]!.component.name, idx)
             }}
             renderTabBar={(props) => <TabBar {...props} />}
             renderScene={({ route }) => renderScene(route, index)}
@@ -56,3 +56,4 @@ export interface TabItem {
     component: ComponentType
     componentProps?: any
 }
+

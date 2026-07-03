@@ -19,14 +19,17 @@ import { useTheme } from '../theme/context/ThemeContext'
 
 export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>((props, ref) => {
     const { ds, resolve } = useTheme()
+    const disabled = props.disabled ?? false
+    const editable = props.editable ?? true
+    const error = props.error ?? false
     const [uncontrolledValue, setUncontrolledValue] = React.useState(props.defaultValue)
     const isControlled = props.value !== undefined
     const value = isControlled ? props.value : uncontrolledValue
     const [focused, setFocused] = React.useState(false)
-    const canEnterText = !props.disabled && props.editable
+    const canEnterText = !disabled && editable
     const inputTypeScale = resolve(ds.comp.outlinedTextInput.inputTextTypeScale)
-    const innerRef = React.useRef<TextInput>()
-    const inputRef = (ref !== undefined ? ref : innerRef) as MutableRefObject<TextInput>
+    const innerRef = React.useRef<TextInput | null>(null)
+    const inputRef = (ref !== undefined ? ref : innerRef) as MutableRefObject<TextInput | null>
     const forceFocus = React.useCallback(() => inputRef?.current?.focus(), [inputRef])
 
     const handleFocus = (args: any) => {
@@ -48,8 +51,8 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
 
     return (
         <View>
-            <Container focused={focused} error={props.error} disabled={props.disabled} style={[{
-                ...(props.disabled ? {
+            <Container focused={focused} error={error} disabled={disabled} style={[{
+                ...(disabled ? {
                     backgroundColor: rgba(
                         resolve(ds.comp.outlinedTextInput.disabledContainerColor),
                         resolve(ds.comp.outlinedTextInput.disabledContainerOpacity),
@@ -59,12 +62,12 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
                 {props.leadingIcon && (
                     <Pressable
                         onPress={() => { props.onLeadingIconPress?.(); forceFocus() }}
-                        disabled={props.disabled}
+                        disabled={disabled}
                         style={{ alignSelf: props.iconAlignment ?? 'center' }}
                     >
                         <LeadingIcon
                             name={props.leadingIcon}
-                            disabled={props.disabled}
+                            disabled={disabled}
                             size={resolve(props.typeScale?.fontSize) ?? resolve(ds.comp.outlinedTextInput.leadingIconSize)}
                             leadingIconColor={props.leadingIconColor}
                         />
@@ -77,7 +80,7 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
                         autoFocus={props.autoFocus}
                         multiline={false}
                         value={value}
-                        editable={!props.disabled && props.editable}
+                        editable={!disabled && editable}
                         secureTextEntry={props.secureTextEntry}
                         keyboardType={props.keyboardType ?? (Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password')}
                         inputMode={props.inputMode}
@@ -102,7 +105,7 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
                                 color: resolve(ds.comp.outlinedTextInput.inputTextColor),
                                 textAlignVertical: props.textAlignVertical ?? 'center',
                                 textAlign: props.textAlign ?? 'left',
-                                ...(props.disabled ? {
+                                ...(disabled ? {
                                     color: rgba(
                                         resolve(ds.comp.outlinedTextInput.disabledInputTextColor),
                                         resolve(ds.comp.outlinedTextInput.disabledInputTextOpacity)
@@ -116,20 +119,20 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
                     typeScale={resolve(ds.comp.outlinedTextInput.supportingTextTypeScale)}
                     numberOfLines={1}
                     allowFontScaling={false}
-                    error={props.error}
-                    disabled={props.disabled}
+                    error={error}
+                    disabled={disabled}
                 >
                     {props.uploadText}
                 </UploadText>
                 {props.trailingIcon && (
                     <Pressable
                         onPress={() => { props.onTrailingIconPress?.(); forceFocus() }}
-                        disabled={props.disabled}
+                        disabled={disabled}
                         style={{ alignSelf: props.iconAlignment ?? 'center' }}
                     >
                         <TrailingIcon
                             name={props.trailingIcon}
-                            disabled={props.disabled}
+                            disabled={disabled}
                             size={resolve(props.typeScale?.fontSize) ?? resolve(ds.comp.outlinedTextInput.trailingIconSize)}
                             trailingIconColor={props.trailingIconColor}
                         />
@@ -140,8 +143,8 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
                 typeScale={resolve(ds.comp.outlinedTextInput.supportingTextTypeScale)}
                 numberOfLines={1}
                 allowFontScaling={false}
-                error={props.error}
-                disabled={props.disabled}
+                error={error}
+                disabled={disabled}
             >
                 {props.supportingText}
             </SupportingText>
@@ -149,8 +152,8 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
                 typeScale={resolve(ds.comp.outlinedTextInput.supportingTextTypeScale)}
                 numberOfLines={1}
                 allowFontScaling={false}
-                error={props.error}
-                disabled={props.disabled}
+                error={error}
+                disabled={disabled}
             >
                 {props.errorText}
             </ErrorText>
@@ -158,11 +161,6 @@ export const OutlinedFileInput = forwardRef<TextInput, OutlinedFieldInputProps>(
     )
 })
 
-OutlinedFileInput.defaultProps = {
-    editable: true,
-    error: false,
-    disabled: false,
-}
 
 const Container = themed(View, ({ ds, resolve, error, focused }) => ({
     flexDirection: 'row',
@@ -286,3 +284,6 @@ export interface OutlinedFieldInputProps {
     textAlign?: 'auto' | 'center' | 'left' | 'right' | 'justify'
     textAlignVertical?: 'auto' | 'center' | 'top' | 'bottom'
 }
+
+
+
