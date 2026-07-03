@@ -14,7 +14,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'yarn'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@material-rn'
@@ -24,9 +24,9 @@ jobs:
         run: yarn build
       - name: Publish to npm
         run: |
-          yarn config set npmScopes.material-rn.npmAuthToken $NODE_AUTH_TOKEN
+          yarn config set npmScopes.material-rn.npmAuthToken $NPM_TOKEN
           yarn config set npmScopes.material-rn.npmPublishRegistry https://npm.pkg.github.com
           yarn config set npmScopes.material-rn.npmRegistryServer https://npm.pkg.github.com
           yarn lerna exec --no-private -- yarn npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
