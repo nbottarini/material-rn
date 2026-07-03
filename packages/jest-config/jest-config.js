@@ -1,6 +1,7 @@
 module.exports = {
-    preset: 'react-native',
+    preset: '@react-native/jest-preset',
     setupFilesAfterEnv: ['jest-extended/all', '@material-rn/stdlib'],
     testRegex: '(/test/(.*)\\.(test|spec))\\.(ts|js|tsx|jsx)$',
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json']
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+    watchman: false
 }

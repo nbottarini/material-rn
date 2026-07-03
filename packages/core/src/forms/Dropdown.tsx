@@ -57,10 +57,6 @@ export const Dropdown: FC<DropdownProps> = (props) => {
     )
 }
 
-Dropdown.defaultProps = {
-    error: false,
-    disabled: false,
-}
 
 const Container = themed(View, ({ ds, resolve, error, disabled }) => ({
     backgroundColor: resolve(ds.comp.dropdown.containerColor),
@@ -148,3 +144,4 @@ export interface DropdownOption {
     id: string
     title: string
 }
+

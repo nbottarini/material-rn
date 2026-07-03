@@ -12,8 +12,8 @@ export function themed<E, P>(
     Component: ComponentType<P>,
     styles: Styles|StylesFunc<E & P & { ds: Theme, resolve: TokenResolveFunc }>,
 ): ComponentType<E & P & { [x:string]: any }> {
-    const StyledComponent = styled(Component, styles)
-    return (props) => {
+    const StyledComponent = styled(Component as ComponentType<any>, styles as any) as ComponentType<any>
+    return (props: E & P & { [x:string]: any }) => {
         const { ds, resolve } = useTheme()
         return <StyledComponent {...props} ds={ds} resolve={resolve} />
     }
@@ -24,8 +24,8 @@ export function themedPressable<E, P>(
     styles: Styles|StylesFunc<E & P & { ds: Theme, resolve: TokenResolveFunc }>,
     pressedStyles: Styles|StylesFunc<E & P & { ds: Theme, resolve: TokenResolveFunc }>,
 ): ComponentType<E & P & { pressed?: boolean, [x:string]: any }> {
-    const StyledComponent = styledPressable(Component, styles, pressedStyles)
-    return (props) => {
+    const StyledComponent = styledPressable(Component as ComponentType<any>, styles as any, pressedStyles as any) as ComponentType<any>
+    return (props: E & P & { pressed?: boolean, [x:string]: any }) => {
         const { ds, resolve } = useTheme()
         return <StyledComponent {...props} ds={ds} resolve={resolve} />
     }

@@ -77,7 +77,7 @@ const Badge = themed(View, ({ ds, resolve }) => ({
 }))
 
 export interface FilledIconButtonProps {
-    name?: IconNames
+    name: IconNames
     onPress?: (event: GestureResponderEvent) => void
     disabled?: boolean
     style?: ViewStyle
@@ -85,3 +85,4 @@ export interface FilledIconButtonProps {
     containerColor?: string
     buttonSize?: number
 }
+

@@ -6,7 +6,7 @@ export const FullScreenDialogButton: FC<FullScreenDialogButtonProps> = (props) =
     const { ds, resolve } = useTheme()
     return (
         <FilledButton
-            title={props.title}
+            title={props.title ?? ''}
             onPress={props.onPress}
             labelStyle={
                 props.type === FullScreenDialogButtonTypes.Secondary ? { color: resolve(ds.sys.color.onSurface) } : {}
@@ -28,3 +28,4 @@ export enum FullScreenDialogButtonTypes {
 }
 
 export type FullScreenDialogButtonType = ReactElement<FullScreenDialogButtonProps>
+

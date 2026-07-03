@@ -15,8 +15,8 @@ export const OtpField: FC<OtpFieldProps> = (props) => {
     return (
         <View>
             <_OneTimePasswordInput
-                onTextChange={(text) => props.onTextChange(text)}
-                onFilled={(text) => props.onFilled(text)}
+                onTextChange={(text) => props.onTextChange?.(text)}
+                onFilled={(text) => props.onFilled?.(text)}
                 hasError={!!props.errorText}
             />
             <OtpError>{props.errorText ?? ''}</OtpError>
@@ -64,3 +64,4 @@ interface OtpFieldProps extends OneTimePasswordInputProps {
     resendCountDownInSecs: number
     onResend: () => void
 }
+

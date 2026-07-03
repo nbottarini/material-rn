@@ -2478,6 +2478,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/create-cache-key-function@npm:^29.7.0":
+  version: 29.7.0
+  resolution: "@jest/create-cache-key-function@npm:29.7.0"
+  dependencies:
+    "@jest/types": "npm:^29.6.3"
+  checksum: 10/061ef63b13ec8c8e5d08e4456f03b5cf8c7f9c1cab4fed8402e1479153cafce6eea80420e308ef62027abb7e29b825fcfa06551856bd021d98e92e381bf91723
+  languageName: node
+  linkType: hard
+
 "@jest/environment@npm:^29.7.0":
   version: 29.7.0
   resolution: "@jest/environment@npm:29.7.0"
@@ -2895,6 +2904,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.25.2"
     "@material-rn/stdlib": "workspace:~"
+    "@react-native/jest-preset": "npm:~0.85.3"
     "@types/jest": "npm:^29.5.14"
     babel-jest: "npm:^29.7.0"
     jest: "npm:^29.7.0"
@@ -2909,9 +2919,11 @@ __metadata:
     "@material-rn/eslint-config-material": "workspace:~"
     "@material-rn/jest-config-material": "workspace:~"
     "@material-rn/typescript-config-material": "workspace:~"
+    "@react-native/babel-preset": "npm:^0.86.0"
+    "@react-native/jest-preset": "npm:~0.85.3"
     "@types/jest": "npm:~29.5.14"
     "@types/node": "npm:^22.7.8"
-    "@types/react": "npm:^18.3.10"
+    "@types/react": "npm:~19.2.2"
     "@types/react-native": "npm:~0.73.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.0.0"
     "@typescript-eslint/parser": "npm:^5.0.0"
@@ -3942,7 +3954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native/babel-preset@npm:0.86.0":
+"@react-native/babel-preset@npm:0.86.0, @react-native/babel-preset@npm:^0.86.0":
   version: 0.86.0
   resolution: "@react-native/babel-preset@npm:0.86.0"
   dependencies:
@@ -4101,6 +4113,21 @@ __metadata:
   version: 0.85.3
   resolution: "@react-native/gradle-plugin@npm:0.85.3"
   checksum: 10/c838736286d27a13d90fd14cf81cf2165360da01e43d1f95b0ea4fb5c7716b02153e1b2604a168a39dead6f77a66eaba155ea997b9db46f4887669fbf78f18df
+  languageName: node
+  linkType: hard
+
+"@react-native/jest-preset@npm:~0.85.3":
+  version: 0.85.3
+  resolution: "@react-native/jest-preset@npm:0.85.3"
+  dependencies:
+    "@jest/create-cache-key-function": "npm:^29.7.0"
+    "@react-native/js-polyfills": "npm:0.85.3"
+    babel-jest: "npm:^29.7.0"
+    jest-environment-node: "npm:^29.7.0"
+    regenerator-runtime: "npm:^0.13.2"
+  peerDependencies:
+    react: ^19.2.3
+  checksum: 10/663cfa48b0a9b18d965d6d107cb9a799262326ab7b17bb508ba27f98be23e01301f02cce290256ca2c3e844da752bfdb8f485c94821f96ac1ec59486c9dbb4ef
   languageName: node
   linkType: hard
 
@@ -4543,13 +4570,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
-  version: 15.7.15
-  resolution: "@types/prop-types@npm:15.7.15"
-  checksum: 10/31aa2f59b28f24da6fb4f1d70807dae2aedfce090ec63eaf9ea01727a9533ef6eaf017de5bff99fbccad7d1c9e644f52c6c2ba30869465dd22b1a7221c29f356
-  languageName: node
-  linkType: hard
-
 "@types/react-native@npm:~0.73.0":
   version: 0.73.0
   resolution: "@types/react-native@npm:0.73.0"
@@ -4574,16 +4594,6 @@ __metadata:
   dependencies:
     csstype: "npm:^3.2.2"
   checksum: 10/8debb092bd0bb9c99176a31824c7587c27c775a6526b60060e7b9e8dc2af53aee2ffadc7a1e3845953792437db5699d34a9054e198c9d4e54a74728ff47c6725
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^18.3.10":
-  version: 18.3.31
-  resolution: "@types/react@npm:18.3.31"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.2.2"
-  checksum: 10/0a5d73b1ba3ce73273b28cc50da78d520b1a8d4253075820dc5cf6c9e286ff6cb339b56bd613d05885fec214fbecd8137bddcbdb475612fdcc46e061d88f00fc
   languageName: node
   linkType: hard
 

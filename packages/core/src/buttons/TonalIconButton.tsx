@@ -78,7 +78,7 @@ const Badge = themed(View, ({ ds, resolve }) => ({
 }))
 
 export interface TonalIconButtonProps {
-    name?: IconNames
+    name: IconNames
     onPress?: (event: GestureResponderEvent) => void
     disabled?: boolean
     style?: ViewStyle
@@ -87,3 +87,4 @@ export interface TonalIconButtonProps {
     iconSize?: number
     buttonSize?: number
 }
+

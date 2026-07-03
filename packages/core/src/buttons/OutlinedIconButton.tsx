@@ -82,10 +82,11 @@ const Badge = themed(View, ({ ds, resolve }) => ({
 }))
 
 export interface OutlinedIconButtonProps {
-    name?: IconNames
+    name: IconNames
     onPress?: (event: GestureResponderEvent) => void
     disabled?: boolean
     style?: ViewStyle
     showBadge?: boolean
     containerColor?: string
 }
+

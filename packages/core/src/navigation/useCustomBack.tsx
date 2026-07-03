@@ -9,7 +9,7 @@ export function useCustomBack(options: BackOptions) {
         navigation.setOptions({
             headerLeft: ({ tintColor, canGoBack }) => {
                 if (!canGoBack || options.isVisible === false) return null
-                return <AppBarBackButton onPress={options.onPress} tintColor={tintColor} />
+                return <AppBarBackButton onPress={options.onPress ?? (() => navigation.goBack())} tintColor={tintColor} />
             },
             headerBackVisible: options.isVisible === false ? false : undefined,
         })
@@ -31,3 +31,4 @@ export interface BackOptions {
     onPress?: () => void
     isVisible?: boolean
 }
+

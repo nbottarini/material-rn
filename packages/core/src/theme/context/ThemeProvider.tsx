@@ -6,7 +6,7 @@ import { deepMerge, DeepPartial } from '@material-rn/stdlib'
 
 export const ThemeProvider: FC<Props> = ({ children, ds }) => {
     const { ds: currentDs } = useTheme()
-    const newDs = useMemo(() => deepMerge(currentDs, ds) as Theme, [currentDs, ds])
+    const newDs = useMemo(() => deepMerge(currentDs, ds ?? {}) as Theme, [currentDs, ds])
     const newResolve = useMemo(() => tokenResolveFuncFor(newDs), [newDs])
 
     return (
@@ -20,3 +20,4 @@ interface Props {
     children: React.ReactNode,
     ds?: DeepPartial<Theme>,
 }
+

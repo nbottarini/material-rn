@@ -76,10 +76,11 @@ const Badge = themed(View, ({ ds, resolve }) => ({
 }))
 
 export interface StandardIconButtonProps {
-    name?: IconNames
+    name: IconNames
     iconColor?: string
     onPress?: (event: GestureResponderEvent) => void
     disabled?: boolean
     style?: ViewStyle
     showBadge?: boolean
 }
+
