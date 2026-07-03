@@ -7,8 +7,5 @@
   },
   "dependencies": {
     "@tsconfig/react-native": "^3.0.9"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   }
 }

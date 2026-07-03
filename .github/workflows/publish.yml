@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '22'
           cache: 'yarn'
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: 'https://registry.npmjs.org'
           scope: '@material-rn'
       - name: Install modules
         run: yarn install --immutable
@@ -25,8 +25,6 @@ jobs:
       - name: Publish to npm
         run: |
           yarn config set npmScopes.material-rn.npmAuthToken $NPM_TOKEN
-          yarn config set npmScopes.material-rn.npmPublishRegistry https://npm.pkg.github.com
-          yarn config set npmScopes.material-rn.npmRegistryServer https://npm.pkg.github.com
           yarn lerna exec --no-private -- yarn npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
