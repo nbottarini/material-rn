@@ -1,0 +1,32 @@
+name: "Publish workflow"
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@material-rn'
+      - name: Install modules
+        run: yarn install --immutable
+      - name: Build
+        run: yarn build
+      - name: Publish to npm
+        run: |
+          yarn config set npmScopes.material-rn.npmAuthToken $NODE_AUTH_TOKEN
+          yarn config set npmScopes.material-rn.npmPublishRegistry https://npm.pkg.github.com
+          yarn config set npmScopes.material-rn.npmRegistryServer https://npm.pkg.github.com
+          yarn lerna exec --no-private -- yarn npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

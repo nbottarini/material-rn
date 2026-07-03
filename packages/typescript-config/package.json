@@ -1,0 +1,14 @@
+{
+  "name": "@material-rn/typescript-config-material",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nbottarini/material-rn.git"
+  },
+  "dependencies": {
+    "@tsconfig/react-native": "^3.0.5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

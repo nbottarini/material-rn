@@ -1,0 +1,7 @@
+{
+  "extends": "@material-rn/typescript-config-material/tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false
+  },
+  "include": ["src", "test"]
+}

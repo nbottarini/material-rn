@@ -1,0 +1,22 @@
+name: "Main workflow"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      - name: Install modules
+        run: yarn install --immutable
+      - name: Run check-all
+        run: yarn check-all

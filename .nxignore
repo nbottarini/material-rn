@@ -1,0 +1,24 @@
+.git/
+.cache/
+.idea/
+
+# OSX
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# React Native
+ios/
+vendor/bundle/
+android/
+
+# node.js
+node_modules/
+
+# Yarn
+.yarn/
+
+dist/
+build/
