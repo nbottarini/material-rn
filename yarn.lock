@@ -2952,7 +2952,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@material-rn/typescript-config-material@workspace:packages/typescript-config"
   dependencies:
-    "@tsconfig/react-native": "npm:^3.0.5"
+    "@tsconfig/react-native": "npm:^3.0.9"
   languageName: unknown
   linkType: soft
 
@@ -4353,7 +4353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/react-native@npm:^3.0.5":
+"@tsconfig/react-native@npm:^3.0.9":
   version: 3.0.9
   resolution: "@tsconfig/react-native@npm:3.0.9"
   checksum: 10/44a44c867937430b408e1c8dc13401d4e3f837705b185975ff14856d6aa754367d73d6a9e40f0d911b4c5f61fbc25180c8014d9608507317043e665bab6f2f33
