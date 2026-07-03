@@ -8,12 +8,6 @@ module.exports = {
     'platforms': ['android', 'ios'],
     'icon': './assets/images/icon.png',
     'userInterfaceStyle': 'light',
-    'splash': {
-        'backgroundColor': '#ffffff',
-    },
-    'assetBundlePatterns': [
-        '**/*',
-    ],
     'ios': {
         'buildNumber': '1',
         'bundleIdentifier': 'com.nbottarini.materialrn.catalog',
@@ -33,14 +27,14 @@ module.exports = {
             'expo-build-properties',
             {
                 'android': {
-                    'buildToolsVersion': '34.0.0',
-                    'compileSdkVersion': 34,
-                    'targetSdkVersion': 34,
-                    'minSdkVersion': 23,
-                    'kotlinVersion': '1.9.0',
+                    'buildToolsVersion': '36.0.0',
+                    'compileSdkVersion': 36,
+                    'targetSdkVersion': 36,
+                    'minSdkVersion': 26,
                 },
                 'ios': {
-                    'deploymentTarget': '13.4',
+                    'deploymentTarget': '16.4',
+                    'useFrameworks': 'static',
                 },
             },
         ],
