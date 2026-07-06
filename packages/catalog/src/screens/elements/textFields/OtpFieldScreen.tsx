@@ -8,6 +8,7 @@ export const OtpFieldScreen = () => {
     const toast = useToast()
     const [, setValue1] = useState('')
     const [, setValue2] = useState('')
+    const [, setValue3] = useState('')
     return (
         <ScreenContainer>
             <TitleMedium>OTP Field</TitleMedium>
@@ -25,7 +26,14 @@ export const OtpFieldScreen = () => {
                 onResend={() => toast.show('resend')}
                 resendCountDownInSecs={5}
             />
+            <TitleMedium>OTP Field (4 digits)</TitleMedium>
+            <OtpField
+                numberOfDigits={4}
+                onTextChange={value => setValue3(value)}
+                onFilled={value => toast.show(`filled ${value}`)}
+                onResend={() => toast.show('resend')}
+                resendCountDownInSecs={5}
+            />
         </ScreenContainer>
     )
 }
-
