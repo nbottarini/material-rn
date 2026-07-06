@@ -101,7 +101,10 @@ export const OutlinedTextInput = forwardRef<TextInput, OutlinedTextInputProps>((
                             {
                                 fontFamily: resolve(props.typeScale?.fontFamily) ?? resolve(inputTypeScale.fontFamily),
                                 fontSize: resolve(props.typeScale?.fontSize) ?? resolve(inputTypeScale.fontSize),
+                                lineHeight: resolve(props.typeScale?.lineHeight) ?? resolve(inputTypeScale.lineHeight),
                                 letterSpacing: resolve(props.typeScale?.letterSpacing) ?? resolve(inputTypeScale.letterSpacing),
+                                height: '100%',
+                                paddingVertical: 0,
                                 color: resolve(ds.comp.outlinedTextInput.inputTextColor),
                                 textAlignVertical: props.textAlignVertical ?? 'center',
                                 textAlign: props.textAlign ?? 'left',
@@ -242,6 +245,5 @@ export interface OutlinedTextInputProps {
     textAlign?: 'auto' | 'center' | 'left' | 'right' | 'justify'
     textAlignVertical?: 'auto' | 'center' | 'top' | 'bottom'
 }
-
 
 
