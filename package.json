@@ -45,6 +45,7 @@
     "typescript": "^6.0.3"
   },
   "resolutions": {
+    "cheerio": "1.0.0-rc.12",
     "react-native": "0.85.3"
   }
 }

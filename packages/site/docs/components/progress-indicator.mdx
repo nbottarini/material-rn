@@ -1,0 +1,29 @@
+---
+sidebar_position: 10
+---
+
+
+import Details from '@theme/Details'
+import TokenTable from '../../src/components/TokenTable'
+import Token from '../../src/components/Token'
+
+# Progress indicator
+
+The design system only supports circular progress indicators.
+
+![Progress indicator](./img/progress-indicator.png)
+
+## Specs
+
+<Details open>
+    <summary>Activity Indicator</summary>
+    <TokenTable>
+        <Token name="ds.comp.progressIndicator.color" value="ds.sys.color.primary" />
+    </TokenTable>
+</Details>
+
+## React Native
+
+```typescript jsx
+<ProgressIndicator />
+```

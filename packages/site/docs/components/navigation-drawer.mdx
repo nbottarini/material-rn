@@ -1,0 +1,145 @@
+---
+sidebar_position: 9
+---
+
+
+import Details from '@theme/Details'
+import TokenTable from '../../src/components/TokenTable'
+import Token from '../../src/components/Token'
+
+# Navigation drawer
+
+![Navigation drawer](./img/navigation-drawer.png)
+
+- **1**: Container
+- **2**: User Container
+- **2**: User Avatar
+- **3**: User Label
+- **4**: User Supporting Text
+- **5**: Item Container
+- **6**: Item Icon
+- **7**: Item Label
+- **8**: Supporting Text (eg: app version number)
+- **9**: Scrim
+
+## Specs
+
+### Enabled
+
+<Details open>
+    <summary>Container</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.containerWidth" value="280dp" />
+        <Token name="ds.comp.navigationDrawer.containerElevation" value="ds.sys.elevation.level0" />
+        <Token name="ds.comp.navigationDrawer.containerColor" value="ds.sys.color.inverseSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>User Container</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.userContainerColor" value="ds.sys.color.inverseSurface" />
+        <Token name="ds.comp.navigationDrawer.userContainerPaddingVertical" value="32dp" />
+        <Token name="ds.comp.navigationDrawer.userContainerPaddingHorizontal" value="16dp" />
+        <Token name="ds.comp.navigationDrawer.userContainerGap" value="16dp" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>User Avatar</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.userAvatarSize" value="40dp" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>User Label</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.userLabelTypeScale" value="ds.sys.typeScale.titleMedium" />
+        <Token name="ds.comp.navigationDrawer.userLabelColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>User Supporting Text</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.userSupportingTextTypeScale" value="ds.sys.typeScale.bodyMedium" />
+        <Token name="ds.comp.navigationDrawer.userSupportingTextColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Container</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.itemContainerColor" value="ds.sys.color.inverseSurface" />
+        <Token name="ds.comp.navigationDrawer.itemContainerHeight" value="62dp" />
+        <Token name="ds.comp.navigationDrawer.itemContainerPaddingHorizontal" value="16dp" />
+        <Token name="ds.comp.navigationDrawer.itemContainerGap" value="24dp" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Icon</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.itemIconSize" value="24dp" />
+        <Token name="ds.comp.navigationDrawer.itemIconColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Label</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.itemLabelTypeScale" value="ds.sys.typeScale.bodyLarge" />
+        <Token name="ds.comp.navigationDrawer.itemLabelColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Supporting text</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.supportingTextTypeScale" value="ds.sys.typeScale.bodyMedium" />
+        <Token name="ds.comp.navigationDrawer.supportingTextColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Scrim</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.scrimColor" value="ds.sys.color.scrim" />
+        <Token name="ds.comp.navigationDrawer.scrimOpacity" value="0.4" />
+    </TokenTable>
+</Details>
+
+### Item Active
+
+<Details open>
+    <summary>Item Container</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.activeItemContainerColor" value="ds.ref.palette.neutral30" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Icon</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.activeItemIconColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Label</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.activeItemLabelColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+
+### Item Pressed
+
+<Details open>
+    <summary>State Layer</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.pressedStateLayerColor" value="ds.sys.color.inverseOnSurface" />
+        <Token name="ds.comp.navigationDrawer.pressedStateLayerOpacity" value="ds.sys.state.pressedStateLayerOpacity" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Icon</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.pressedItemIconColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>
+<Details open>
+    <summary>Item Label</summary>
+    <TokenTable>
+        <Token name="ds.comp.navigationDrawer.pressedItemLabelColor" value="ds.sys.color.inverseOnSurface" />
+    </TokenTable>
+</Details>

@@ -1,0 +1,37 @@
+---
+sidebar_position: 5
+---
+
+
+import Figure from '../../src/components/Figure'
+
+# Typography
+
+## TypeScale
+
+A **type scale** is a selection of font styles that can be used across an app, ensuring a flexible, yet consistent, style that accommodates a range of purposes. The Material Design type scale is a combination of 15 styles, each with an intended application and meaning. They’re assigned based on use (such as display or headline), and grouped more broadly into categories based on scale (such as large or small). Default type scale uses Roboto for all titles, labels, and body text, creating a cohesive typography experience.
+
+
+<Figure
+    src={require('./img/typescales.png').default}
+    alt="Typescales"
+    caption="The scale is a range of contrasting styles that support the needs of various product contexts and content. No single product will use all the styles defined below. Instead, select styles from the scale that are most appropriate."
+/>
+
+:::tip
+See [typescale tokens](../system-tokens#typescale).
+:::
+
+Typescale distinguishes between two types of reference tokens: **brand** and **plain**.
+This enables you to use two different typefaces within your design.
+
+The **brand typeface** (which has the token ds.ref.typeface.brand) is recommended for larger font sizes, such as Headline and Display,
+while **plain typeface** (with the token ds.ref.typeface.plain) is suitable for smaller font sizes, such as Body and Label.
+
+:::tip
+See [typeface tokens](../reference-tokens#typefaces).
+:::
+
+## Applying Type
+
+Read more on the official [Material Design docs](https://m3.material.io/styles/typography/applying-type).

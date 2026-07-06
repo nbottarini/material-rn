@@ -1,0 +1,30 @@
+---
+sidebar_position: 7
+---
+
+
+import PropsTable from '../../src/components/PropsTable'
+import Prop from '../../src/components/Prop'
+
+# Icon
+
+Shows an icon of the icon system
+
+:::tip
+You can search icon names in the [Official Icon Finder](https://fonts.google.com/icons).
+:::
+
+## React Native
+
+```typescript jsx
+<Icon name="search" />
+```
+
+### Props
+
+<PropsTable>
+    <Prop name="name" type="IconNames" />
+    <Prop name="size" type="number" isOptional={true} />
+    <Prop name="style" type="TextStyle" isOptional={true} />
+    <Prop name="color" type="string" isOptional={true} />
+</PropsTable>
