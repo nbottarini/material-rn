@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { View } from 'react-native'
 import { styled } from '../../../styled'
 import { rv } from '../../../rv'
@@ -17,6 +17,7 @@ export const OtpField: FC<OtpFieldProps> = (props) => {
             <_OneTimePasswordInput
                 onTextChange={(text) => props.onTextChange?.(text)}
                 onFilled={(text) => props.onFilled?.(text)}
+                numberOfDigits={props.numberOfDigits}
                 hasError={!!props.errorText}
             />
             <OtpError>{props.errorText ?? ''}</OtpError>
@@ -64,4 +65,3 @@ interface OtpFieldProps extends OneTimePasswordInputProps {
     resendCountDownInSecs: number
     onResend: () => void
 }
-

@@ -8,14 +8,15 @@ import { rgba } from '../../../color'
 export const OneTimePasswordInput: FC<OneTimePasswordInputProps> = (props) => {
     const { ds, resolve } = useTheme()
     return (
-        <View style={props.style}>
+        <View style={[{ alignItems: 'center' }, props.style]}>
             <OtpInput
                 autoFocus={false}
-                numberOfDigits={6}
+                numberOfDigits={props.numberOfDigits ?? 6}
                 focusColor={resolve(ds.sys.color.primary)}
                 onFilled={props.onFilled}
                 onTextChange={props.onTextChange}
                 theme={{
+                    containerStyle: { width: 'auto', gap: rv(16) },
                     pinCodeContainerStyle: { width: rv(48), height: rv(48), borderRadius: rv(16), borderColor: props.hasError ? resolve(ds.ref.palette.error._50) : resolve(ds.sys.color.outlineVariant) },
                     pinCodeTextStyle: {
                         fontFamily: resolve(ds.sys.typeScale.bodyMedium.fontFamily),
@@ -41,6 +42,7 @@ export const OneTimePasswordInput: FC<OneTimePasswordInputProps> = (props) => {
 }
 
 export interface OneTimePasswordInputProps {
+    numberOfDigits?: number
     onFilled?: (text: string) => void
     onTextChange?: (text: string) => void
     style?: ViewStyle
