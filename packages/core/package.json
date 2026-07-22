@@ -1,6 +1,6 @@
 {
   "name": "@material-rn/core",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/commonjs/public.js",
   "react-native": "src/public.ts",
   "source": "src/public.ts",
