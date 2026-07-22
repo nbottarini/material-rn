@@ -30,7 +30,6 @@ export const OtpField: FC<OtpFieldProps> = (props) => {
                             setResetTimer(!resetTimer)
                             setCanResend(!canResend)
                         }}
-                        style={{ width: rv(103) }}
                     >
                         {props.resendButtonText ?? 'Reenviar código'}
                     </TextLink>
