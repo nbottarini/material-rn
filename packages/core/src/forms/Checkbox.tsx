@@ -19,13 +19,15 @@ export const Checkbox: FC<CheckboxProps> = (props) => {
             {({ pressed }) => (
                 <StateLayer pressed={pressed} buttonSize={buttonSize} borderRadius={borderRadius}>
                     <CheckeableContainer checked={props.checked} disabled={props.disabled}>
-                        <_Icon
-                            size={iconSize}
-                            disabled={props.disabled}
-                            name={'check'}
-                            pressed={pressed}
-                            color={props.checked ? resolve(ds.sys.color.surface) : 'transparent'}
-                        />
+                        {props.checked && (
+                            <_Icon
+                                size={iconSize}
+                                disabled={props.disabled}
+                                name={'check'}
+                                pressed={pressed}
+                                color={resolve(ds.sys.color.surface)}
+                            />
+                        )}
                     </CheckeableContainer>
                 </StateLayer>
             )}

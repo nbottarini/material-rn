@@ -38,7 +38,6 @@
     "react-native-toast-notifications": "~3.4.0"
   },
   "devDependencies": {
-    "@types/color-convert": "^3.0.1",
     "react-native-gesture-handler": "^2.31.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-reanimated": "^4.3.1",
