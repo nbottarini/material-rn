@@ -1,6 +1,6 @@
 import { tokenResolveFuncFor } from '../../src/theme/Theme/tokenResolver/tokenResolveFuncFor'
-import { deepMerge, DeepPartial } from '@material-rn/stdlib'
 import { Theme } from '../../src/theme/Theme/Theme'
+import { deepMerge, DeepPartial } from '@material-rn/stdlib/src'
 
 it('resolves literal string', () => {
     const ds = themeWith({ ref: { palette: { primary: { _40: 'red' } } } })
