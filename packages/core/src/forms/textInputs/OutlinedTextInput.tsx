@@ -16,6 +16,7 @@ import { Icon } from '../../Icon/Icon'
 import { rgba } from '../../color'
 import { Typography } from '../../text/Typography'
 import { rv } from '../../rv'
+import { singleLineTextInputLineHeight } from './singleLineTextInputLineHeight'
 
 export const OutlinedTextInput = forwardRef<TextInput, OutlinedTextInputProps>((props, ref) => {
     const { ds, resolve } = useTheme()
@@ -28,6 +29,7 @@ export const OutlinedTextInput = forwardRef<TextInput, OutlinedTextInputProps>((
     const [focused, setFocused] = React.useState(false)
     const canEnterText = !disabled && editable
     const inputTypeScale = resolve(ds.comp.outlinedTextInput.inputTextTypeScale)
+    const inputLineHeight = resolve(props.typeScale?.lineHeight) ?? resolve(inputTypeScale.lineHeight)
     const innerRef = React.useRef<TextInput | null>(null)
     const inputRef = (ref !== undefined ? ref : innerRef) as MutableRefObject<TextInput | null>
     const forceFocus = React.useCallback(() => inputRef?.current?.focus(), [inputRef])
@@ -101,7 +103,7 @@ export const OutlinedTextInput = forwardRef<TextInput, OutlinedTextInputProps>((
                             {
                                 fontFamily: resolve(props.typeScale?.fontFamily) ?? resolve(inputTypeScale.fontFamily),
                                 fontSize: resolve(props.typeScale?.fontSize) ?? resolve(inputTypeScale.fontSize),
-                                lineHeight: resolve(props.typeScale?.lineHeight) ?? resolve(inputTypeScale.lineHeight),
+                                lineHeight: singleLineTextInputLineHeight(inputLineHeight),
                                 letterSpacing: resolve(props.typeScale?.letterSpacing) ?? resolve(inputTypeScale.letterSpacing),
                                 height: '100%',
                                 paddingVertical: 0,

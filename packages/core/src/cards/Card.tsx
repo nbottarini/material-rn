@@ -3,6 +3,7 @@ import { ViewStyle } from 'react-native/Libraries/StyleSheet/StyleSheetTypes'
 import { GestureResponderEvent, Pressable, StyleProp, View } from 'react-native'
 import { themed, themedPressable } from '../theme/themed'
 import { rgba } from '../color'
+import { elevationStyle } from '../theme/elevationStyle'
 
 export const Card: FC<CardProps> = (props) => {
     return (
@@ -21,26 +22,31 @@ export const Card: FC<CardProps> = (props) => {
     )
 }
 
-const Container = themed(Pressable, ({ resolve, ds, disabledState }) => ({
-    flexGrow: 1,
-    flexShrink: 1,
-    borderColor: resolve(ds.comp.card.containerOutlineColor),
-    borderWidth: resolve(ds.comp.card.containerOutlineWidth),
-    borderRadius: resolve(ds.comp.card.containerShape),
-    elevation: resolve(ds.comp.card.containerElevation),
-    backgroundColor: resolve(ds.comp.card.containerColor),
-    ...(disabledState ? {
-        elevation: resolve(ds.comp.card.disabledContainerElevation),
-        backgroundColor: rgba(resolve(ds.comp.card.disabledContainerColor), resolve(ds.comp.card.disabledContainerOpacity)),
-        borderColor: rgba(resolve(ds.comp.card.disabledContainerOutlineColor), resolve(ds.comp.card.disabledContainerOutlineOpacity)),
-    } : {}),
-}))
+const Container = themed(Pressable, ({ resolve, ds, disabledState }) => {
+    const elevation = resolve(disabledState
+        ? ds.comp.card.disabledContainerElevation
+        : ds.comp.card.containerElevation)
+
+    return {
+        flexGrow: 1,
+        flexShrink: 1,
+        borderColor: resolve(ds.comp.card.containerOutlineColor),
+        borderWidth: resolve(ds.comp.card.containerOutlineWidth),
+        borderRadius: resolve(ds.comp.card.containerShape),
+        backgroundColor: resolve(ds.comp.card.containerColor),
+        ...elevationStyle(elevation, resolve(ds.sys.color.shadow)),
+        ...(disabledState ? {
+            backgroundColor: rgba(resolve(ds.comp.card.disabledContainerColor), resolve(ds.comp.card.disabledContainerOpacity)),
+            borderColor: rgba(resolve(ds.comp.card.disabledContainerOutlineColor), resolve(ds.comp.card.disabledContainerOutlineOpacity)),
+        } : {}),
+    }
+})
 
 const StateLayer = themedPressable(View, ({ resolve, ds }) => ({
     flexGrow: 1,
     flexShrink: 1,
     paddingVertical: resolve(ds.comp.card.containerPaddingVertical),
-    paddingHorizontal: resolve(ds.comp.card.containerPaddingVertical),
+    paddingHorizontal: resolve(ds.comp.card.containerPaddingHorizontal),
 }), ({ resolve, ds }) => ({
     backgroundColor: rgba(
         resolve(ds.comp.card.pressedStateLayerColor),
