@@ -1,6 +1,6 @@
 {
   "name": "@material-rn/jest-config-material",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "jest-config.js",
   "repository": {
     "type": "git",
