@@ -1,6 +1,8 @@
 {
   "name": "@material-rn/jest-config-material",
   "version": "0.1.7",
+  "author": "Nicolás Bottarini <nicolasbottarini@gmail.com>",
+  "license": "MIT",
   "main": "jest-config.js",
   "repository": {
     "type": "git",

@@ -1,6 +1,8 @@
 {
   "name": "@material-rn/typescript-config-material",
   "version": "0.1.7",
+  "author": "Nicolás Bottarini <nicolasbottarini@gmail.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/nbottarini/material-rn.git"

@@ -1,6 +1,8 @@
 {
   "name": "@material-rn/core",
   "version": "0.1.7",
+  "author": "Nicolás Bottarini <nicolasbottarini@gmail.com>",
+  "license": "MIT",
   "main": "dist/commonjs/public.js",
   "react-native": "src/public.ts",
   "source": "src/public.ts",

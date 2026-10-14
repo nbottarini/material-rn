@@ -1,6 +1,8 @@
 {
   "name": "@material-rn/stdlib",
   "version": "0.1.7",
+  "author": "Nicolás Bottarini <nicolasbottarini@gmail.com>",
+  "license": "MIT",
   "main": "dist/commonjs/index.js",
   "react-native": "src/index.ts",
   "source": "src/index.ts",
